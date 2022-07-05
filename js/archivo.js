@@ -1,23 +1,64 @@
-let compraTotal = parseInt(prompt("Ingrese importe Total de la compra"));
-let cuotas = 0;
+let calcularVacaciones = document.getElementById('calcularVacaciones')
 
-while (cuotas != 3 && cuotas != 6 && cuotas != 12) {
-  cuotas = parseInt(prompt("Ingrese cantidad de cuotas (3 o 12)."));
+calcularVacaciones.addEventListener('submit', calcExpenses)
 
-  if (cuotas != 3 && cuotas != 6 && cuotas != 12) {
-    alert("ERROR: ingrese cuotas: 3, 6 o 12");
-  } else {
-    alert("ingresó " + " " + cuotas + " " + "cuotas");
-  }
+function getValues() {
+  let destino = document.getElementById('destino').value,
+      presupuesto = document.getElementById('presupuesto').value,
+      transporte = document.getElementById('transporte').value,
+      alojamiento = document.getElementById('alojamiento').value,
+      comida = document.getElementById('comida').value;
+
+  return { destino, presupuesto, transporte, alojamiento, comida }    
 }
 
-let calculoCuotas = 0;
+function calcExpenses(e) {
+  e.preventDefault();
+  
+  const  { destino, presupuesto, transporte, alojamiento, comida } = getValues()
 
-function calculo(compraTotal, cuotas) {
-  let calculoCuotas = compraTotal / cuotas;
-  return calculoCuotas;
+  let gastos = parseInt(alojamiento) + parseInt(transporte) + parseInt(comida)
+  let balance = presupuesto - gastos
+
+  UI (destino, presupuesto, balance)
 }
 
-let resultado = calculo(compraTotal, cuotas);
-console.log(resultado);
-alert(`${cuotas} cuotas de ${resultado}`);
+function UI(destino, presupuesto, balance) {
+  let result = document.getElementById("result")
+  let dataPrint = document.createElement("div")
+  
+   dataPrint.innerHTML += `
+    <div class="container-data row">
+      <div class="col s4">
+        <h6>${destino}</h6>
+      </div>
+      <div class="col s4">
+        <h6>${presupuesto}</h6>
+      </div>
+      <div class="col s4">
+      <h6 id="balance">${balance}</h6> 
+    </div>
+  </div>
+
+  `
+  result.appendChild(dataPrint) 
+
+  reset()
+}
+
+function reset() {
+  document.getElementById("calcularVacaciones").reset()
+}
+
+function balanceColours() {
+
+  const { balance} = getValues()
+
+
+    if(balance < 0) {
+      document.getElementById("balance").classList.add("red")
+    }
+    else if(balance > 0) {
+      document.getElementById("balance").classList.add("green")
+    }
+}
