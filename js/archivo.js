@@ -62,3 +62,17 @@ function balanceColours() {
       document.getElementById("balance").classList.add("green")
     }
 }
+guardar_localstorage ();
+
+
+function guardar_localstorage () {
+  let destino = {
+    pais: "Uruguay",
+    distancia:"600km",
+    costo: 1000,
+    comida: "chivito",
+  }
+};
+
+localStorage.setItem("pais",destino);
+
