@@ -62,7 +62,24 @@ function balanceColours() {
       document.getElementById("balance").classList.add("green")
     }
 }
-guardar_localstorage ();
+//  guardar_localstorage ();
+
+let destino = localStorage.getItem("destino");
+
+function obtener_localstorage() {
+
+  if (localStorage.getItem("pais")){
+    let pais =localStorage.getItem("pais");
+let destino = JSON.parse( localStorage.getItem("destino"));
+
+console.log(pais);
+console.log(destino);
+
+  }else {
+    console.log("No hay localStorage")
+  }
+
+}
 
 
 function guardar_localstorage () {
@@ -74,5 +91,5 @@ function guardar_localstorage () {
   }
 };
 
-localStorage.setItem("pais",destino);
+localStorage.getItem("pais", JSON.stringify(destino));
 
