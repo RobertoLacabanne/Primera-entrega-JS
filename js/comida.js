@@ -1,3 +1,6 @@
+import data from "../api.json" assert { type: "json" };
+console.log(data);
+
 const items = document.getElementById("items");
 const templateCard = document.createElement("templateCard").content
 const fragment = document.createElementFragment
@@ -52,3 +55,4 @@ if (carrito.hasOwnProperty(producto.id)){
 }
 carrito[producto.id] = {...producto}
 }
+pintarCards(comida)  
