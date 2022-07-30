@@ -5,61 +5,169 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comida</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  </head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
-<body>
-    <div class="container">
-        <h1>Elegi tu comida!</h1>
-        <hr>
-        <template id="template-footer">
-            <th scope="row" colspan="2">Total productos</th>
-            <td>10</td>
-            <td>
-                <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-                    vaciar todo
-                </button>
-            </td>
-            <td class="font-weight-bold">$ <span>5000</span></td>
-        </template>
-        
-        <template id="template-carrito">
-          <tr>
-            <th scope="row">id</th>
-            <td>Pizza</td>
-            <td>1</td>
-            <td>
-                <button class="btn btn-info btn-sm">
-                    +
-                </button>
-                <button class="btn btn-danger btn-sm">
-                    -
-                </button>
-            </td>
-            <td>$ <span>500</span></td>
-          </tr>
-        </template>
-        <div class="row" id="items"></div>
-    </div>
-    <template id="template-card">
-        <div class="col-12 mb-2 col-md-4">
-          <div class="card">
-            <img src="" alt="" class="img-card-top">
-            <div class="card-body">
-              <h5>Titulo</h5>
-              <p>precio</p>
-              <button class="btn btn-dark">Comprar</button>
-            </div>
+<body class="body-comida">
+  <header class="header-comida bg-dark">
+      <div class="header-section container ">
+        <h2 class="h2 text-light">Elegi lo que pensas comer!</h2>
+          <div>
+              <img onmouseover="showCart(this)" class="cart" src="./images/cart.png" alt="">
+              <p class="count-product">0</p>
           </div>
-        </div>
-      </template>
+          <div class="cart-products" id="products-id">
+              <p class="close-btn" onclick="closeBtn()">X</p>
+              <h4>Lo que vas a comer!</h4>
+              <div class="card-items">
+              </div>
+              <h2>Total: <strong class="price-total">0</strong> $</h2>
+          </div>
+      </div>
+      <i class="fa-solid fa-fork-knife"></i>
+      <ul>
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="../index.html">Inicio</a>
+        </li>
+      </ul>
+  </header>
+  <section class="container">
+      <div class="products">
+          <div class="carts">
+              <div>
+                  <img src="./imagenes/DHG09547mar..jpg" alt="">
+                  <p><span>20</span>$</p>
+              </div>
+              <p class="title text-light">Pizzas</p>
+              <a href="" data-id="1" class="btn-add-cart">Agregar</a>
+          </div>
+          <div class="carts">
+              <div>
+                  <img src="./imagenes/empanadas2.jpg" alt="">
+                  <p><span>35</span>$</p>
+              </div>
+              <p class="title text-light"> Empanadas</p>
+              <a href="" class="btn-add-cart" data-id="2">Agregar</a>
+          </div>
+          <div class="carts">
+              <div>
+                  <img src="./imagenes/MILANESAS DE ENTRAÑA0004.jpg" alt="">
+                  <p><span>15.50</span>$</p>
+              </div>
+              <p class="title text-light"> Papas fritas</p>
+              <a href="" data-id="3" class="btn-add-cart">Agregar</a>
+          </div>
+          <div class="carts">
+              <div>
+                  <img src="./imagenes/polenta.jpg" alt="">
+                  <p><span>20.20</span>$</p>
+              </div>
+              <p class="title text-light"> Polenta</p>
+              <a href="" data-id="4" class="btn-add-cart">Agregar</a>
+          </div>
+          <div class="carts">
+              <div>
+                  <img src="./imagenes/VaciNombre_16.jpg" alt="">
+                  <p><span>19</span>$</p>
+              </div>
+              <p class="title text-light"> Carnes</p>
+              <a href="" data-id="5" class="btn-add-cart">Agregar</a>
+          </div>
+          <div class="carts">
+              <div>
+                  <img src="./imagenes/VaciNombre_31 1.jpg" alt="">
+                  <p class="title text-light"> Carnes</p>
+                  <p><span>45</span>$</p>
+                  <a href="" data-id="5" class="btn-add-cart">Agregar</a>
+              </div>
+      
+      </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../js/comida.js"></script>
-    <script type="module">
-      import data from "../api.json";
-      console.log(data);
-    </script>
+  <footer class="text-center text-lg-start text-white" style="background-color: #222222">
 
-    
+<div class="container p-4 pb-0">
+
+<section class="container-fluid">
+
+<div class="row">
+
+  <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-center">
+    <h6 class="text-uppercase mb-4 font-weight-bold h3">
+   
+    Viajeros</h6>
+    <p class="h6">
+      Solo pensa en disfrutar tus vacaciones
+    </p>
+  </div>
+  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+    <h6 class="text-uppercase mb-4 font-weight-bold text-center h3">Contactanos</h6>
+    <p class="h6"><i class="fas fa-home mr-3 h6"></i> Parana Entre Rios</p>
+    <p class="h6"><i class="fas fa-envelope mr-3 h6"></i> Viajeros@gmail.com</p>
+    <p class="h6"><i class="fas fa-phone mr-3 h6"></i> 3436223500</p>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<hr class="my-3">
+
+
+<section class="p-3 pt-0">
+<div class="row d-flex align-items-center">
+
+  <div class="col-md-7 col-lg-8 text-center text-md-start">
+
+    <div class="p-3">
+      © 2022 Copyright:
+      <a class="text-white" href="https://www.coderhouse.com/"
+         >CoderHouse</a
+        >
+    </div>
+
+  </div>
+
+
+
+  <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+    <a
+       class="btn btn-outline-light btn-floating m-1"
+       class="text-white"
+       role="button"
+       ><i class="fab fa-instagram"></i
+      ></a>
+  </div>
+</div>
+</section>
+
+</div>
+
+</footer>
+
+  <script>
+      function showCart(x){
+          document.getElementById("products-id").style.display = "block";
+      }
+      function closeBtn(){
+           document.getElementById("products-id").style.display = "none";
+      }
+
+  </script>
+  <script src="https://kit.fontawesome.com/7097c48b12.js" crossorigin="anonymous"></script>
+  <script src="../js/comida.js" ></script>
 </body>
 </html>
