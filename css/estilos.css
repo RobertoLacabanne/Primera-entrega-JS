@@ -104,8 +104,8 @@ a {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    align-items: center;
-    position: relative;
+    align-items: center !important;
+    position: relative !important;
 }
 .header-section div{
     position: relative;
@@ -158,6 +158,7 @@ a {
     box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
     padding-bottom: 34px;
     margin-bottom: 40px;
+    border-radius: 20%;
 }
 .carts img{
     width: 100%;
@@ -167,13 +168,14 @@ a {
     font-weight: 500;
     padding: 0 20px;
     margin-bottom: 24px;
+    color: #000 !important;
 }
 .carts div p{
     position: absolute;
     top: 0;
     right: 0px;
     background-color: orange;
-    color: #fff;
+    color: black;
     padding: 2px 7px 4px 21px;
     clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
 }
@@ -193,8 +195,8 @@ a {
 
 .carts a:hover{
     background: #fff;
-    color: red;
-    border: solid 2px red;
+    color: black;
+    border: solid 2px grey;
     transition-duration: .3s;
 }
 
@@ -257,8 +259,31 @@ p.author a {
     color: #000;
 }
 .body-comida{
-  background-color: #3a2f2f !important;
+  background-color: #dbc5c5b1 !important;
 }
 .header-comida {
   background-color: #666666!important;
+}
+a li ul  {text-decoration: none !important;}
+.navbar-nav {
+  margin: auto;
+}
+
+.navbar-nav:hover{
+  background-color: #222222;
+  border-color: #666666;
+}
+.navbar-nav:active{
+  padding: 0.2em;
+}
+header {
+  display: flex;
+flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center !important;
+
+}
+.sidebar {
+  right: 0;
+  left: auto;
 }
