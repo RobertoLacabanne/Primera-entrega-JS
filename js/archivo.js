@@ -2,7 +2,7 @@ let calcularVacaciones = document.getElementById('calcularVacaciones')
 
 calcularVacaciones.addEventListener('submit', calcExpenses)
 
-function getValues() {
+function getValues()  {
   let destino = document.getElementById('destino').value,
       presupuesto = document.getElementById('presupuesto').value,
       transporte = document.getElementById('transporte').value,
@@ -10,6 +10,8 @@ function getValues() {
       comida = document.getElementById('comida').value;
 
   return { destino, presupuesto, transporte, alojamiento, comida }    
+
+  
 }
 
 function calcExpenses(e) {
@@ -21,6 +23,7 @@ function calcExpenses(e) {
   let balance = presupuesto - gastos
 
   UI (destino, presupuesto, balance)
+  manejeElClicks()
 }
 
 function UI(destino, presupuesto, balance) {
@@ -93,3 +96,12 @@ function guardar_localstorage () {
 
 localStorage.getItem("pais", JSON.stringify(destino));
 
+function manejeElClicks() {
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
