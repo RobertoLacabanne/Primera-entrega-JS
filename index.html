@@ -17,13 +17,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   </head>
 <header class="bg-dark">
-  <nav class="navbar bg-dark">
-    <h2 class="navbar-header">Viaja con nosotros</h2>
-    <ul class= "d-flex flex-row justify-content-center">
-      <li><a  href="gastos/comida.html">Comida</a></li>
-      <li><a  href="gastos/Alojamiento.html">Alojamiento</a></li>
-      <a class="nav-link text-light" href="gastos/Transporte.html">Transporte</a>
-    </ul>
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="index.html">Viaja Con nosotros!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active text-light" aria-current="page" href="gastos/comida.html">Comida</a>
+          <a class="nav-link text-light" href="gastos/Alojamiento.html">Alojamiento</a>
+          <a class="nav-link text-light" href="gastos/Transporte.html">Transporte</a>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
   <body>
@@ -42,7 +49,7 @@
         />
         <input type="number" placeholder="Transporte" id="transporte" required />
         <input type="number" placeholder="Comida" id="comida" required />
-        <input type="submit" value="Calcular" id = "myBtn" class="btn" />
+        <input type="submit" value="Calcular" class="btn" onclick="manejeElClicks()" />
       </form>
     </div>
 
