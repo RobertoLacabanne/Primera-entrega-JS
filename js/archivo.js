@@ -104,3 +104,18 @@ function manejeElClicks() {
     timer: 5000,
   })
 }
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-User-Agent': 'desktop',
+		'X-Proxy-Location': 'EU',
+		'X-RapidAPI-Key': 'aaf53b95dbmshbe0146fca97abafp10df3djsn568445cdecd4',
+		'X-RapidAPI-Host': 'google-search3.p.rapidapi.com'
+	}
+};
+
+fetch('https://google-search3.p.rapidapi.com/api/v1/search/q=elon+musk', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
