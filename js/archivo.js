@@ -108,14 +108,12 @@ function manejeElClicks() {
 const options = {
 	method: 'GET',
 	headers: {
-		'X-User-Agent': 'desktop',
-		'X-Proxy-Location': 'EU',
 		'X-RapidAPI-Key': 'aaf53b95dbmshbe0146fca97abafp10df3djsn568445cdecd4',
-		'X-RapidAPI-Host': 'google-search3.p.rapidapi.com'
+		'X-RapidAPI-Host': 'google-search1.p.rapidapi.com'
 	}
 };
 
-fetch('https://google-search3.p.rapidapi.com/api/v1/search/q=elon+musk', options)
+fetch('https://google-search1.p.rapidapi.com/google-search?hl=en&q=Avengers%2BEndgame&gl=us', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
